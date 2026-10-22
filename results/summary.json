@@ -1,0 +1,198 @@
+{
+ "weibull": [
+  {
+   "class": "compressor",
+   "lives": 18,
+   "failures": 2,
+   "beta_true": 2.4,
+   "eta_true_h": 42000,
+   "beta_mle": 1.48,
+   "eta_mle_h": 63486.06,
+   "beta_naive": 19.36,
+   "eta_naive_h": 7871.23,
+   "b10_true_h": 16444.92,
+   "b10_mle_h": 13890.6,
+   "b10_naive_h": 7007.63,
+   "b10_mle_90ci_h": "7248 to 14515"
+  },
+  {
+   "class": "fan",
+   "lives": 38,
+   "failures": 8,
+   "beta_true": 1.5,
+   "eta_true_h": 30000,
+   "beta_mle": 1.13,
+   "eta_mle_h": 53710.43,
+   "beta_naive": 1.54,
+   "eta_naive_h": 9395.08,
+   "b10_true_h": 6692.27,
+   "b10_mle_h": 7391.23,
+   "b10_naive_h": 2185.43,
+   "b10_mle_90ci_h": "3931 to 14709"
+  },
+  {
+   "class": "pump",
+   "lives": 82,
+   "failures": 23,
+   "beta_true": 1.8,
+   "eta_true_h": 26000,
+   "beta_mle": 1.53,
+   "eta_mle_h": 29862.52,
+   "beta_naive": 2.17,
+   "eta_naive_h": 10015.08,
+   "b10_true_h": 7447.6,
+   "b10_mle_h": 6866.08,
+   "b10_naive_h": 3551.08,
+   "b10_mle_90ci_h": "4871 to 9249"
+  }
+ ],
+ "validation": [
+  {
+   "T_h": 6000,
+   "simulated": 9.33,
+   "analytic": 9.336,
+   "error_pct": -0.058
+  },
+  {
+   "T_h": 12000,
+   "simulated": 6.297,
+   "analytic": 6.279,
+   "error_pct": 0.281
+  },
+  {
+   "T_h": 24000,
+   "simulated": 5.711,
+   "analytic": 5.697,
+   "error_pct": 0.261
+  }
+ ],
+ "fleet": {
+  "planned_with_censored_fit": {
+   "current_cost_keur_y": 625.0873634783468,
+   "planned_cost_keur_y": 200.08071047904792,
+   "current_failures_y": 4.885135544226115,
+   "planned_failures_y": 1.4572418903303728,
+   "strategy_count": {
+    "route": 18,
+    "online": 8,
+    "run_to_failure": 2
+   }
+  },
+  "planned_with_naive_fit": {
+   "current_cost_keur_y": 625.0873634783468,
+   "planned_cost_keur_y": 562.5784821142878,
+   "current_failures_y": 4.885135544226115,
+   "planned_failures_y": 0.5302226880414157,
+   "strategy_count": {
+    "online": 14,
+    "route": 10,
+    "time_based": 4
+   }
+  },
+  "planned_with_true_parameters": {
+   "current_cost_keur_y": 625.0873634783468,
+   "planned_cost_keur_y": 199.10860546587364,
+   "current_failures_y": 4.885135544226115,
+   "planned_failures_y": 1.219410712447227,
+   "strategy_count": {
+    "route": 16,
+    "online": 10,
+    "time_based": 2
+   }
+  }
+ },
+ "top_critical": [
+  {
+   "tag": "P-107",
+   "class": "pump",
+   "criticality": 12,
+   "strategy": "online",
+   "setting_h": NaN,
+   "current_cost_keur_y": 17.92,
+   "planned_cost_keur_y": 6.52
+  },
+  {
+   "tag": "P-112",
+   "class": "pump",
+   "criticality": 12,
+   "strategy": "online",
+   "setting_h": NaN,
+   "current_cost_keur_y": 46.1,
+   "planned_cost_keur_y": 9.61
+  },
+  {
+   "tag": "P-104",
+   "class": "pump",
+   "criticality": 9,
+   "strategy": "online",
+   "setting_h": NaN,
+   "current_cost_keur_y": 54.16,
+   "planned_cost_keur_y": 10.49
+  },
+  {
+   "tag": "P-102",
+   "class": "pump",
+   "criticality": 9,
+   "strategy": "online",
+   "setting_h": NaN,
+   "current_cost_keur_y": 38.05,
+   "planned_cost_keur_y": 8.73
+  },
+  {
+   "tag": "P-105",
+   "class": "pump",
+   "criticality": 9,
+   "strategy": "online",
+   "setting_h": NaN,
+   "current_cost_keur_y": 25.97,
+   "planned_cost_keur_y": 7.41
+  },
+  {
+   "tag": "P-110B",
+   "class": "pump",
+   "criticality": 9,
+   "strategy": "route",
+   "setting_h": 720.0,
+   "current_cost_keur_y": 5.84,
+   "planned_cost_keur_y": 4.0
+  }
+ ],
+ "sensitivity_P104": [
+  {
+   "pf_median_h": 120.0,
+   "best": "online",
+   "setting_h": NaN,
+   "best_cost": 22.17,
+   "best_time_based_cost": 45.62
+  },
+  {
+   "pf_median_h": 300.0,
+   "best": "online",
+   "setting_h": NaN,
+   "best_cost": 10.34,
+   "best_time_based_cost": 45.62
+  },
+  {
+   "pf_median_h": 600.0,
+   "best": "online",
+   "setting_h": NaN,
+   "best_cost": 10.28,
+   "best_time_based_cost": 45.62
+  },
+  {
+   "pf_median_h": 1200.0,
+   "best": "online",
+   "setting_h": NaN,
+   "best_cost": 10.5,
+   "best_time_based_cost": 45.62
+  },
+  {
+   "pf_median_h": 2400.0,
+   "best": "route",
+   "setting_h": 720.0,
+   "best_cost": 10.82,
+   "best_time_based_cost": 45.62
+  }
+ ],
+ "runtime_s": 4
+}

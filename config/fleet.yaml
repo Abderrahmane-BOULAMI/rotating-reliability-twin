@@ -1,0 +1,72 @@
+# Rotating equipment of a process unit. Every number is an assumption, to be replaced by the site's
+# maintenance history (CMMS) and costs. Time in operating hours (8 000 h per year).
+hours_per_year: 8000
+seed: 7
+
+classes:
+  pump:          # centrifugal process pump, bearing and seal wear-out
+    weibull_beta: 1.8
+    weibull_eta_h: 26000
+    pf_interval_h: [1200, 0.5]        # lognormal (median, sigma): time between detectable defect and failure
+    corrective_cost_keur: 18
+    preventive_cost_keur: 6
+    corrective_downtime_h: 36
+    preventive_downtime_h: 8
+  compressor:
+    weibull_beta: 2.4
+    weibull_eta_h: 42000
+    pf_interval_h: [2000, 0.5]
+    corrective_cost_keur: 120
+    preventive_cost_keur: 35
+    corrective_downtime_h: 120
+    preventive_downtime_h: 24
+  fan:           # air cooler fan, belt and bearing wear-out
+    weibull_beta: 1.5
+    weibull_eta_h: 30000
+    pf_interval_h: [900, 0.6]
+    corrective_cost_keur: 6
+    preventive_cost_keur: 2
+    corrective_downtime_h: 24
+    preventive_downtime_h: 6
+
+monitoring:
+  route_cost_keur: 0.12              # one portable vibration measurement on one machine
+  route_detection: 0.85              # probability that a route measurement catches a defect in its P-F window
+  online_cost_keur_per_year: 3.0     # permanent sensor + software, per machine
+  online_detection: 0.97
+  planning_lead_h: 72                # time needed to plan the intervention after detection
+
+current_practice:                    # what the unit does today in this scenario
+  strategy: time_based
+  interval_h: 16000
+
+# fleet: tag, class, production loss per hour of unplanned stop (kEUR/h, 0 if spared), safety (1..4), environment (1..4)
+fleet:
+  - [P-101A, pump, 0.0, 2, 1]
+  - [P-101B, pump, 0.0, 2, 1]
+  - [P-102, pump, 4.0, 3, 2]
+  - [P-103A, pump, 0.0, 1, 1]
+  - [P-103B, pump, 0.0, 1, 1]
+  - [P-104, pump, 6.0, 3, 3]
+  - [P-105, pump, 2.5, 2, 2]
+  - [P-106A, pump, 0.0, 2, 1]
+  - [P-106B, pump, 0.0, 2, 1]
+  - [P-107, pump, 1.5, 4, 3]
+  - [P-108, pump, 0.5, 1, 1]
+  - [P-109, pump, 3.0, 2, 1]
+  - [P-110A, pump, 0.0, 3, 2]
+  - [P-110B, pump, 0.0, 3, 2]
+  - [P-111, pump, 0.8, 1, 1]
+  - [P-112, pump, 5.0, 4, 4]
+  - [K-201, compressor, 15.0, 4, 3]
+  - [K-202, compressor, 8.0, 3, 2]
+  - [K-203A, compressor, 0.0, 3, 2]
+  - [K-203B, compressor, 0.0, 3, 2]
+  - [F-301, fan, 0.6, 1, 1]
+  - [F-302, fan, 0.6, 1, 1]
+  - [F-303, fan, 0.6, 1, 1]
+  - [F-304, fan, 0.6, 1, 1]
+  - [F-305, fan, 1.2, 2, 1]
+  - [F-306, fan, 1.2, 2, 1]
+  - [F-307, fan, 0.0, 1, 1]
+  - [F-308, fan, 0.0, 1, 1]
